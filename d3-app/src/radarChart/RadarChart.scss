@@ -1,0 +1,255 @@
+.radarChartContent {
+  position: relative;
+  height: 528px;
+  background-color: white;
+
+  h6 {
+    margin-bottom: 20px;
+  }
+
+  .marLine,
+  .sharpeLine,
+  .sortinoLine,
+  .calmarLine,
+  .treynorLine,
+  .romadLine {
+    position: absolute;
+    width: 292px;
+    height: 1px;
+    background: lightgray;
+  }
+
+  .sharpeLine {
+    top: 78px;
+    left: 81px;
+  }
+
+  .marLine {
+    top: 78px;
+    left: 568px;
+  }
+
+  .calmarLine {
+    top: 246px;
+    left: 663px;
+    width: 193px;
+  }
+
+  .sortinoLine {
+    top: 246px;
+    left: 81px;
+    width: 196px;
+  }
+
+  .treynorLine {
+    top: 415px;
+    left: 81px;
+  }
+
+  .romadLine {
+    top: 415px;
+    left: 567px;
+  }
+
+  @keyframes increase {
+    0% {
+      top: -1px;
+      width: 0;
+      height: 3px;
+    }
+
+    100% {
+      top: -1px;
+      width: 100%;
+      height: 3px;
+    }
+  }
+
+  @keyframes decrease {
+    0% {
+      top: -1px;
+      left: 100%;
+      width: 0;
+      height: 3px;
+    }
+
+    100% {
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+    }
+  }
+
+  .lineActiveLTR {
+    position: relative;
+    width: 1px;
+    height: 0;
+    border-top: 3px solid lightgray;
+    -webkit-animation: increase 0.5s;
+    -moz-animation: increase 0.5s;
+    -o-animation: increase 0.5s;
+    animation: increase 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  .lineActiveRTL {
+    position: relative;
+    width: 1px;
+    height: 0;
+    border-top: 3px solid lightgray;
+    -webkit-animation: decrease 0.5s;
+    -moz-animation: decrease 0.5s;
+    -o-animation: decrease 0.5s;
+    animation: decrease 0.5s;
+    animation-fill-mode: forwards;
+
+    &::after {
+      width: 1px;
+    }
+  }
+
+  .middleLine {
+    position: absolute;
+    top: 245px;
+    left: 81px;
+    width: 775px;
+    height: 1px;
+    background: lightgray;
+  }
+
+  .bottomLine {
+    position: absolute;
+    top: 415px;
+    left: 84px;
+    width: 776px;
+    height: 1px;
+    background: lightgray;
+  }
+}
+
+.radarChartLeftData {
+  float: left;
+  width: 240px;
+}
+
+.radarChart {
+  position: relative;
+  top: -29px;
+  left: -4px;
+  width: 414px;
+  height: 400px;
+  float: left;
+}
+
+.radarChartRightData {
+  float: left;
+  width: 240px;
+}
+
+.statContainer {
+  margin-bottom: 75px;
+}
+
+.statName {
+  margin-bottom: 10px;
+  color: gray;
+  font-size: 12px;
+}
+
+.statNameRight {
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.securityData {
+  display: inline-block;
+  transition: ease all 0.3s;
+  padding-left: 13px;
+  border-left: 4px solid blue;
+  background-color: transparent;
+
+  &.columnLeft {
+    width: 114px;
+    margin-right: 8px;
+
+    &.activeColumn {
+      background-color: gainsboro;
+    }
+  }
+
+  &.columnRight {
+    width: 114px;
+
+    &.activeColumn {
+      background-color: gainsboro;
+    }
+  }
+}
+
+.benchmarkData {
+  display: inline-block;
+  transition: ease all 0.3s;
+  margin-top: 4px;
+  padding-left: 13px;
+  border-left: 4px solid gray;
+  background-color: transparent;
+
+  &.columnLeft {
+    width: 114px;
+
+    &.activeColumn {
+      background-color: gainsboro;
+    }
+  }
+
+  &.columnRight {
+    width: 114px;
+
+    &.activeColumn {
+      background-color: gainsboro;
+    }
+  }
+}
+
+.label {
+  overflow: hidden;
+  padding: 4px 0;
+  color: gray;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.securityStat {
+  padding-bottom: 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.axis {
+  font: 15px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: lightskyblue;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+.axisWrapper {
+  border: 5px solid;
+
+  line {
+    transform: translate(-250px, -250px);
+  }
+}
+
+.ratiosArticleIcon {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+}
