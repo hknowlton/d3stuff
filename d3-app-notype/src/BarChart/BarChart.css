@@ -1,0 +1,4 @@
+.bar:hover {
+  stroke: yellow;
+  stroke-width: 3;
+}

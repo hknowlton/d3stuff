@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
+import './BarChart.css';
 
 class BarChart extends Component {
   state = {
@@ -18,7 +19,16 @@ class BarChart extends Component {
       { date: '2013-12', value: 433 },
       { date: '2014-01', value: 455 },
       { date: '2015-02', value: 478 }
-    ]
+    ],
+    activeElement: null
+  };
+
+  onMouseOverCustom = d => {
+    this.setState({ activeElement: d });
+  };
+
+  clearActive = () => {
+    this.setState({ activeElement: null });
   };
 
   componentDidMount() {
@@ -88,6 +98,15 @@ class BarChart extends Component {
       .enter()
       .append('rect')
       .style('fill', 'steelblue')
+      .attr('className', 'bar')
+      .on('mouseenter', this.onMouseOverCustom)
+      .on('mouseenter', function(d) {
+        d3.select(this).style('fill', 'pink');
+      })
+      .on('mouseleave', this.clearActive)
+      .on('mouseleave', function(d) {
+        d3.select(this).style('fill', 'steelblue');
+      })
       .attr('x', function(d) {
         return x(d.date);
       })
@@ -107,7 +126,14 @@ class BarChart extends Component {
       return null;
     }
 
-    return <div ref="anchor" />;
+    return (
+      <>
+        <div ref="anchor" />
+        {this.state.activeElement && (
+          <h1> looking at {this.state.activeElement.date}</h1>
+        )}
+      </>
+    );
   }
 }
 
